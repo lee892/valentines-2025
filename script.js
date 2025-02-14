@@ -1,22 +1,25 @@
-window.onload = () => {
-    const textElement = document.getElementById('happy-text');
-    const totalLength = textElement.getTotalLength();
-
-    // Set initial stroke-dasharray and stroke-dashoffset for the animation
-    textElement.style.strokeDasharray = totalLength;
-    textElement.style.strokeDashoffset = totalLength;
-
-    // Create the animation to draw the text
-    textElement.animate(
-        [
-            { strokeDashoffset: totalLength },
-            { strokeDashoffset: 0 }
-        ],
-        {
-            duration: 4000,
-            easing: 'ease-in-out',
-            fill: 'forwards'
-        }
-    );
-};
+document.addEventListener("mousemove", function(event) {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.style.left = `${event.clientX}px`;
+    heart.style.top = `${event.clientY}px`;
+    heart.innerHTML = "❤️";
+    document.body.appendChild(heart);
+    
+    setTimeout(() => {
+        heart.remove();
+    }, 1000);
+});
+let buttonClicked = false;
+function showGif() {
+    if (!buttonClicked) {
+        document.querySelector("button").innerText = "Nay!";
+        document.getElementById("gifContainer").style.display = "block";
+        buttonClicked = true;
+    } else {
+        document.querySelector("button").innerText = "Yay!";
+        document.getElementById("gifContainer").style.display = "none";
+        buttonClicked = false;
+    }
+}
 
