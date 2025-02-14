@@ -1,0 +1,19 @@
+body {
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+/* Optional: Center text on page */
+svg {
+    display: block;
+    margin: auto;
+}
+
